@@ -3,21 +3,24 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_engineer"
+            android:icon="@drawable/ic_menu_engineering"
+            android:fontFamily="@font/montserrat"
+            android:title="@string/engineering" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_medical"
+            android:icon="@drawable/ic_menu_medical"
+            android:fontFamily="@font/montserrat"
+            android:title="@string/medical" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about"
+            android:title="ABOUT US" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_setting"
+            android:title="LOST PASSWORD" />
+
     </group>
 
     <item android:title="Communicate">
@@ -25,11 +28,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="SHARE" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_menu_contact"
+                android:title="CONTACT US" />
         </menu>
     </item>
 
