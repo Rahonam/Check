@@ -12,7 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,8 +28,8 @@ public class MainActivity extends AppCompatActivity
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
-    NavigationView navigationView;
-
+    Button cl;
+    public static TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,16 @@ public class MainActivity extends AppCompatActivity
                 return false;
             }
         });
+        cl=(Button)findViewById(R.id.button);
+        text=(TextView)findViewById(R.id.fetched);
+        cl.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                    fetchData process=new fetchData();
+                    process.execute();
+              }
+          }
+        );
     }
     private void prepareListData() {
         listDataHeader = new ArrayList<>();
