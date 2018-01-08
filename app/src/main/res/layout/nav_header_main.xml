@@ -16,7 +16,7 @@
         android:layout_width="90dp"
         android:layout_height="70dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/logo" />
+        android:src="@drawable/user" />
 
     <TextView
         android:layout_width="match_parent"

@@ -7,6 +7,30 @@
     <string name="action_settings">Settings</string>
     <string name="user_name"><b><![CDATA[Manohar Kumar]]></b></string>
     <string name="sign_up_address"><i><![CDATA[manoharkumar371@gmail.com]]></i></string>
+
     <string name="engineering">ENGINEERING</string>
+    <string name="cvl">CIVIL ENGINEERING</string>
+    <string name="cse">COMPUTER SCIENCE</string>
+    <string name="eee">ELECTRICAL AND ELECTRONICS</string>
+    <string name="ece">ELECTRONICS AND COMMUNICATION</string>
+    <string name="ite">INFORMATION TECHNOLOGY</string>
+    <string name="ie">INSTRUMENTATION</string>
+    <string name="me">MECHANICAL</string>
+
     <string name="medical">MEDICAL</string>
+    <string name="bams">BAMS</string>
+    <string name="bds">BDS</string>
+    <string name="mbbs">MBBS</string>
+    <string name="bph">B. PHARMACY</string>
+
+    <string name="aus">ABOUT US</string>
+    <string name="lpw">LOST PASSWORD</string>
+
+    <string name="cwo">CONNECT WITH OTHERS</string>
+    <string name="rgstr">Register</string>
+    <string name="lgn">Login</string>
+    <string name="prst">Password Reset</string>
+    <string name="grps">Groups</string>
+    <string name="mbr">Members</string>
+
 </resources>
