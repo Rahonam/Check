@@ -5,8 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="user_name"><b><![CDATA[Manohar Kumar]]></b></string>
-    <string name="sign_up_address"><i><![CDATA[manoharkumar371@gmail.com]]></i></string>
+    <string name="user_name"><b>Hemant Mishra</b></string>
+    <string name="sign_up_address"><i>hmnt39@gmail.com</i></string>
     <string name="engineering">ENGINEERING</string>
     <string name="medical">MEDICAL</string>
+    <string name="skip">SKIP</string>
+    <string name="next">NEXT</string>
+    <string name="start">GOT IT</string>
 </resources>
