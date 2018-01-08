@@ -5,12 +5,10 @@
         <item
             android:id="@+id/nav_engineer"
             android:icon="@drawable/ic_menu_engineering"
-            android:fontFamily="@font/montserrat"
             android:title="@string/engineering" />
         <item
             android:id="@+id/nav_medical"
             android:icon="@drawable/ic_menu_medical"
-            android:fontFamily="@font/montserrat"
             android:title="@string/medical" />
         <item
             android:id="@+id/nav_about"
@@ -27,7 +25,7 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_share"
                 android:title="SHARE" />
             <item
                 android:id="@+id/nav_contact"

@@ -1,6 +1,5 @@
 package com.example.manohar.check;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,7 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,13 +24,12 @@ import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
-    NavigationView navigationView;
-
+    Button cl;
+    public static TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +46,14 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        //setup drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        //Setup expandableList, navigationView
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //navigationView.setNavigationItemSelectedListener(this);
         expandableList = (ExpandableListView) findViewById(R.id.navigationmenu);
 
         //Prepare data for expandableList
@@ -77,9 +76,17 @@ public class MainActivity extends AppCompatActivity
                 return false;
             }
         });
-
+        cl=(Button)findViewById(R.id.button);
+        text=(TextView)findViewById(R.id.fetched);
+        cl.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                    fetchData process=new fetchData();
+                    process.execute();
+              }
+          }
+        );
     }
-
     private void prepareListData() {
         listDataHeader = new ArrayList<>();
         listDataChild = new HashMap<>();
@@ -146,7 +153,6 @@ public class MainActivity extends AppCompatActivity
         listDataChild.put(listDataHeader.get(4), heading5);
 
     }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -186,7 +192,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_engineer) {
-
+            // Handle the camera action
         } else if (id == R.id.nav_medical) {
 
         } else if (id == R.id.nav_about) {

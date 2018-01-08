@@ -12,8 +12,22 @@
     tools:context="com.example.manohar.check.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You get PDFs, EBooks, Notes and Books here!" />
+        android:text="Click me"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/button"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:id="@+id/fetched"
+            android:textSize="24sp"
+            android:hint="Fetched text here"/>
+    </ScrollView>
 </RelativeLayout>
