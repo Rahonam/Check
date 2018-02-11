@@ -1,9 +1,5 @@
 package com.example.manohar.check;
 
-/**
- * menu model
- */
-
 public class ExpandedMenuModel {
     private String iconName = "";
     private int iconImg = -1; // menu icon resource id

@@ -16,10 +16,6 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-/**
- * Created by Hemant on 1/5/2018.
- */
-
 public class fetchData extends AsyncTask<Void,Void,Void> {
     String data="";
     String dataparsed="";

@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="15dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.manohar.check.MainActivity"
+    tools:layout_width="match_parent"
     tools:showIn="@layout/app_bar_main">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click me"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/button"/>
-    <ScrollView
-        android:layout_width="match_parent"
+
+    <android.support.design.widget.CoordinatorLayout
         android:layout_height="match_parent"
-        android:layout_below="@id/button">
-        <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/container">
+
+        <FrameLayout
+            android:id="@+id/frame_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp"
-            android:id="@+id/fetched"
-            android:textSize="24sp"
-            android:hint="Fetched text here"/>
-    </ScrollView>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="?android:attr/windowBackground"
+            android:foreground="?attr/selectableItemBackground"
+            app:itemBackground="@color/colorP"
+            app:itemIconTint="@android:color/white"
+            app:itemTextColor="@android:color/white"
+            app:menu="@menu/navigation" />
+
+    </android.support.design.widget.CoordinatorLayout>
 </RelativeLayout>

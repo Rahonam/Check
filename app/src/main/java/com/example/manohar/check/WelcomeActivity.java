@@ -17,7 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.example.manohar.check.PrefManager;
+import com.example.manohar.check.Tools.PrefManager;
 
 public class WelcomeActivity extends AppCompatActivity {
 
