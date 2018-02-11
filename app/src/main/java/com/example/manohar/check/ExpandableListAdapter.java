@@ -42,10 +42,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int groupPosition) {
         int childCount = 0;
-        if (groupPosition != 2) {
+
             childCount = this.mListDataChild.get(this.mListDataHeader.get(groupPosition))
                     .size();
-        }
+
         return childCount;
     }
 
@@ -92,7 +92,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         headerIcon.setPadding(18,18,18,18);
         lblListHeader.setTypeface(null, Typeface.NORMAL);
         lblListHeader.setText(headerTitle.getIconName());
-        lblListHeader.setTextSize(3,7);
+        lblListHeader.setTextSize(3,8);
         lblListHeader.setPadding(1,20,10,18);
         headerIcon.setImageResource(headerTitle.getIconImg());
         return convertView;

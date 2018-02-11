@@ -2,36 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single" android:visible="false">
-        <item
-            android:id="@+id/nav_engineer"
-            android:icon="@drawable/ic_menu_engineering"
-            android:title="@string/engineering" />
-        <item
-            android:id="@+id/nav_medical"
-            android:icon="@drawable/ic_menu_medical"
-            android:title="@string/medical" />
-        <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/ic_menu_library"
-            android:title="@string/aus" />
-        <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_setting"
-            android:title="@string/lpw" />
 
     </group>
-
-    <item android:title="Communicate" android:visible="false">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_share"
-                android:title="SHARE" />
-            <item
-                android:id="@+id/nav_contact"
-                android:icon="@drawable/ic_menu_contact"
-                android:title="CONTACT US" />
-        </menu>
-    </item>
 
 </menu>

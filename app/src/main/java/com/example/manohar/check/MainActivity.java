@@ -1,5 +1,6 @@
 package com.example.manohar.check;
 
+import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.view.MenuItem;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         //Action and setting header
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         //Bottom Navigation
@@ -72,7 +75,77 @@ public class MainActivity extends AppCompatActivity
         expandableList.setAdapter(mMenuAdapter);
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {return false;}
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+
+                //Engineering Branches
+                if(i==0){
+                    Intent intent = new Intent(view.getContext(), BranchActivity.class);
+                    switch (i1){
+                        case 0:
+                            intent.putExtra("Branch", "CIVIL ENGINEERING");
+                            startActivity(intent);
+                            break;
+                        case 1:
+                            intent.putExtra("Branch", "COMPUTER SCIENCE");
+                            startActivity(intent);
+                            break;
+                        case 2:
+                            intent.putExtra("Branch", "ELECTRICAL AND ELECTRONICS");
+                            startActivity(intent);
+                            break;
+                        case 3:
+                            intent.putExtra("Branch", "ELECTRONICS AND COMMUNICATION");
+                            startActivity(intent);
+                            break;
+                        case 4:
+                            intent.putExtra("Branch", "INFORMATION TECHNOLOGY");
+                            startActivity(intent);
+                            break;
+                        case 5:
+                            intent.putExtra("Branch", "INSTRUMENTATION");
+                            startActivity(intent);
+                            break;
+                        case 6:
+                            intent.putExtra("Branch", "MECHANICAL");
+                            startActivity(intent);
+                            break;
+                        default:
+                            Toast.makeText(MainActivity.this, "Wrong Selection!",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                //Medical branches
+                if(i==1){
+                    Intent intent = new Intent(view.getContext(), BranchActivity.class);
+                    switch (i1){
+                        case 0:
+                            intent.putExtra("Branch", "B.A.M.S");
+                            startActivity(intent);
+                            break;
+                        case 1:
+                            intent.putExtra("Branch", "B.D.S");
+                            startActivity(intent);
+                            break;
+                        case 2:
+                            intent.putExtra("Branch", "B.PHARMACY");
+                            startActivity(intent);
+                            break;
+                        case 3:
+                            intent.putExtra("Branch", "M.B.B.S");
+                            startActivity(intent);
+                            break;
+                        default:
+                            Toast.makeText(MainActivity.this, "Wrong Selection!",
+                                    Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
         });
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
@@ -223,19 +296,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_engineer) {
-            // Handle the camera action
-        } else if (id == R.id.nav_medical) {
-
-        } else if (id == R.id.nav_about) {
-
-        } else if (id == R.id.nav_setting) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_contact) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -28,7 +28,7 @@
             android:layout_marginTop="@dimen/nav_header_height"
             android:background="@android:color/transparent"
             android:childDivider="#cdcdcd"
-            android:indicatorRight="490dp"
+            android:indicatorLeft="1000dp"
             android:layout_marginLeft="-10dp"
             >
 

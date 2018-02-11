@@ -14,22 +14,23 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/user" />
+        android:layout_marginTop="@dimen/margin_small"
+        android:src="@drawable/ic_account_user" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="15dp">
+        android:paddingTop="3dp">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:text="@string/user_name" />
 
         <TextView

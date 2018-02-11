@@ -14,16 +14,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.crypto.NullCipher;
 import javax.net.ssl.HttpsURLConnection;
 
-public class fetchData extends AsyncTask<Void,Void,Void> {
+/**
+ * JASON data fetching
+ */
+
+public class fetchData extends AsyncTask<String, String, String> {
     String data="";
     String dataparsed="";
     String singleparsed="";
+
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected String doInBackground(String... params) {
         try {
-            URL url=new URL("http://xoombook.com/wp-json/wp/v2/posts/?filter[category_name]=android&per_page=100&fields=id,date,link,title");
+            URL url=new URL(params[0]);
             HttpURLConnection httpURLconnection=(HttpURLConnection)url.openConnection();
             InputStream inputstream=httpURLconnection.getInputStream();
             BufferedReader bufferedreader= new BufferedReader(new InputStreamReader(inputstream));
@@ -50,11 +56,11 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-
-        MainActivity.text.setText(this.dataparsed);
-
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+        if(result!= null) {
+            BranchActivity.book_title.setText(this.dataparsed);
+        }
     }
 }
 

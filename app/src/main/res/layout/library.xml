@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="5dp"
+    android:background="@android:color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/book_cover"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/book"
+        android:scaleType="fitXY"
+        />
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bkttl"
+        android:layout_marginTop="1dp"
+        android:layout_alignBottom="@id/book_cover"
+        android:textColor="#555555"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        />
+
+    <Button
+        android:id="@+id/read_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rdmr"
+        android:layout_alignBottom="@id/book_title"
+        android:background="@android:color/transparent"
+        android:textColor="#446644"
+        android:layout_gravity="center"
+        />
+
+
+</LinearLayout>
