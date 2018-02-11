@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/ic_menu_engineering"
+        android:title="@string/engineering" />
+
+    <item
+        android:id="@+id/navigation_gifts"
+        android:icon="@drawable/ic_menu_medical"
+        android:title="@string/medical" />
+
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/ic_file_upload_black_24dp"
+        android:title="@string/upload" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_file_download_black_24dp"
+        android:title="@string/request" />
+
+</menu>

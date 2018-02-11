@@ -1,35 +1,42 @@
 package com.example.manohar.check;
 
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
-
+import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import com.example.manohar.check.Fragment.engineer;
+import com.example.manohar.check.Fragment.medical;
+import com.example.manohar.check.Fragment.request;
+import com.example.manohar.check.Fragment.upload;
+import com.example.manohar.check.helper.BottomNavigationBehaviour;
 
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    // Variables Used
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<String>> listDataChild;
-    Button cl;
     public static TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,26 +44,27 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+        //Action and setting header
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        //Bottom Navigation
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehaviour());
+        loadFragment(new engineer());
+
+        //Side navigation
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        //navigationView.setNavigationItemSelectedListener(this);
-        expandableList = (ExpandableListView) findViewById(R.id.navigationmenu);
+
+
+        //ViewPager Image slider main Page
 
         //Prepare data for expandableList
+        expandableList = (ExpandableListView) findViewById(R.id.navigationmenu);
         prepareListData();
 
         //Set up expandable List Adapter
@@ -64,28 +72,50 @@ public class MainActivity extends AppCompatActivity
         expandableList.setAdapter(mMenuAdapter);
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                //Log.d("DEBUG", "submenu item clicked");
-                return false;
-            }
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {return false;}
         });
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
-            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                //Log.d("DEBUG", "heading clicked");
-                return false;
-            }
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {return false;}
         });
-        cl=(Button)findViewById(R.id.button);
-        text=(TextView)findViewById(R.id.fetched);
-        cl.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                    fetchData process=new fetchData();
-                    process.execute();
-              }
-          }
-        );
+
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment;
+            switch (item.getItemId()) {
+                case R.id.navigation_shop:
+                    fragment = new engineer();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_gifts:
+                    fragment = new medical();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_cart:
+                    fragment = new request();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_profile:
+                    fragment = new upload();
+                    loadFragment(fragment);
+                    return true;
+            }
+            return false;
+        }
+    };
+
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
     private void prepareListData() {
         listDataHeader = new ArrayList<>();
@@ -139,6 +169,7 @@ public class MainActivity extends AppCompatActivity
         List<String> heading3 = new ArrayList<>();
         List<String> heading4 = new ArrayList<>();
 
+        //Adding other options
         List<String> heading5 = new ArrayList<>();
         heading5.add(getString(R.string.rgstr));
         heading5.add(getString(R.string.lgn));
@@ -146,7 +177,8 @@ public class MainActivity extends AppCompatActivity
         heading5.add(getString(R.string.grps));
         heading5.add(getString(R.string.mbr));
 
-        listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
+        //Adding header list
+        listDataChild.put(listDataHeader.get(0), heading1);
         listDataChild.put(listDataHeader.get(1), heading2);
         listDataChild.put(listDataHeader.get(2), heading3);
         listDataChild.put(listDataHeader.get(3), heading4);
